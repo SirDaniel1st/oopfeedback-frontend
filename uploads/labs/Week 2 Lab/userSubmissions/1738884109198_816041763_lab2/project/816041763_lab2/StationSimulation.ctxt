@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=StationSimulation
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ Instance\ by\ importing\ it,\ then\ called\ it\r\n\ e.g\r\n\ \ *\ Random\ rand\ \=\ new\ Random();\r\n\ \ *\ so\ the\ template\ is\r\n\ \ *\ ClassName\ \=\ InstanceName\ \=\ new\ Class\ Constructor();\r\n
+comment2.params=v\ f
+comment2.target=void\ service(Vehicle,\ FuelStation)
+comment3.params=dimensions
+comment3.target=Vehicle\ createVehicle(java.lang.String[])
+numComments=4

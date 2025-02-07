@@ -89,7 +89,7 @@ export default function LabPage() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 pr-32 px-8">
       <Card>
         <CardHeader>
           <CardTitle>Submit Project</CardTitle>

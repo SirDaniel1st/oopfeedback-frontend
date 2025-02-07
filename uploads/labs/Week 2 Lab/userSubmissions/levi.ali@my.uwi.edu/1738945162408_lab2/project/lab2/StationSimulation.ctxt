@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=StationSimulation
+comment1.params=s
+comment1.target=Vehicle\ newVehicle(java.lang.String[])
+comment2.params=car\ x
+comment2.target=void\ fillTank(Vehicle,\ FuelStation)
+comment3.params=args
+comment3.target=void\ main(java.lang.String[])
+numComments=4

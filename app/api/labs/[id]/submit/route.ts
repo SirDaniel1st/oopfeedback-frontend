@@ -14,15 +14,16 @@ export async function POST(request: Request, context: {
 }) {
   try {
     const supabase = await createClient();
-    const { id } = await context.params; // ✅ Await params before using
+    const { id } = await context.params; // 
     const userIp = request.headers.get('x-forwarded-for') || 'unknown';
 
     // Authenticate user
     const { data: { user }, error: authError } = await supabase.auth.getUser();
-    if (authError || !user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    if (authError || !user || !user.email) {
+      return NextResponse.json({ error: 'Unauthorized: No valid user email' }, { status: 401 });
     }
-    const userEmail = user.email;
+    const userEmail = user.email; 
+    
 
     // Handle ZIP file upload
     const formData = await request.formData();
@@ -34,10 +35,12 @@ export async function POST(request: Request, context: {
 
     const originalName = projectZip.name.replace(/\.zip$/, '');
     const labBasePath = join(process.cwd(), 'uploads', 'labs', id);
+    const userFolder = userEmail.replace(/[^a-zA-Z0-9@._-]/g, '_');
     const sanitizedZipName = originalName.replace(/[^a-zA-Z0-9_-]/g, '_');
     const userSubmissionDir = join(
       labBasePath,
       'userSubmissions',
+      userFolder,
       `${Date.now()}_${sanitizedZipName}`
     );
     const projectZipPath = join(userSubmissionDir, projectZip.name);
